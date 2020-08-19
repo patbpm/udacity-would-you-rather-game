@@ -4,6 +4,7 @@ import '../css/question.css'
 import '../css/takeVote.css'
 import { handleSaveQuestionAnswer } from '../actions/questions'
 import { Link } from 'react-router-dom'
+import NoMatch from './NoMatch'
 
 class TakeVote extends Component {
   handleVote = answerObj => {
@@ -23,13 +24,7 @@ class TakeVote extends Component {
     if (rogueQuestion) {
       return (
         <div className="vote-container">
-          <h2>404: Woops, seems like that question went rogue!</h2>
-          <p>
-            Return to{' '}
-            <Link to="/">
-              <span className="green">safety</span>
-            </Link>
-          </p>
+          < NoMatch />
         </div>
       )
     }

@@ -10,6 +10,7 @@ import TakeVote from '../components/TakeVote'
 import Navbar from './Navbar'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute'
+import NoMatch from './NoMatch'
 
 class App extends Component {
   componentWillMount() {
@@ -24,6 +25,7 @@ class App extends Component {
             <Navbar />
             {this.props.loading === true ? null : (
               <div>
+             
                 <Route path="/" exact component={LogInPage} />
                 <PrivateRoute path="/home" component={Dashboard} />
                 <PrivateRoute
@@ -32,6 +34,7 @@ class App extends Component {
                 />
                 <PrivateRoute path="/add" component={NewQuestion} />
                 <PrivateRoute path="/leaderboard" component={Leaderboard} />
+				<Route component={NoMatch} />
               </div>
             )}
           </div>
